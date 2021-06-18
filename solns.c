@@ -32,5 +32,5 @@ int mode(int[],int){
   int num=0,n,counts[];
   for(a=0;a<int;a++){
     if(int[a]==int[0])
-      num++;
+     num++;
     
