@@ -1,36 +1,74 @@
 /* Enter your solutions in this file */
 #include <stdio.h>
-float avg(int[],int){
-  int a;
-  float sum =0.0;
-  for(a=0;a<int;a++){
-    sum=sum+int[a];
+#include <assert.h>
+
+int max(int a[], int n){
+  
+  int i,x=a[0];
+  for(i=0;i<n;i++)
+  {
+      if(x<a[i])
+       x=a[i];
+  }
+   return x; 
+}
+
+int min(int a[], int n){
+  int i,x=a[0];
+  for(i=0;i<n;i++)
+  {
+      if(x>a[i])
+       x=a[i];
     }
-  sum=sum/int;
+   return x;  
+}
+
+float average(int a[], int n){ 
+   int i ; float sum=0;
+   for(i=0;i<n;i++)
+  {
+    sum+=a[i]; 
+  }
+  sum=sum/n;
   return sum;
   }
 
-int max(int[],int){
-  int a, highest=0;
-  for (a=0;a<int;a++){
-    if(int[a]> highest)
-      highest=int[a];
+int mode(int a[] , int n){
+  int i,j ;
+  int maxcount=0 , maxvalue=0;
+  for(i=0 ; i<n; ++i){
+    int count = 0;
+    for(j=0; j<n ; ++j){
+      if(a[i]==a[j])
+        ++count ;
     }
-  return highest;
-  }
-
-int min(int[],int){
-  int a,lowest=0;
-  for(a=0;a<int;a++){
-    if(int[a]<lowest)
-      lowest=int[a];
-    }
-  return lowest;
-  }
-
-int mode(int[],int){
-  int num=0,n,counts[];
-  for(a=0;a<int;a++){
-    if(int[a]==int[0])
-     num++;
     
+    if(count > maxcount){
+      maxcount = count;
+      maxvalue = a[i];
+    }
+  }
+   return maxvalue;
+ }
+
+int factors(int n, int a[]){
+  
+  int i, j=0;
+  int x=n;
+  for(i=2;i<=n;i++)
+  {
+    
+    if(n%i==0)
+    {
+      
+      a[j]=i;
+     // printf("%d %d %d\n",j,n,a[j]);
+      n=n/i;
+      
+      i=1;
+      j++;
+      
+    } 
+  }
+  return j;  
+}
